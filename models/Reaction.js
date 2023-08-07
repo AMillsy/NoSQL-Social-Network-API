@@ -1,9 +1,19 @@
-const { Schema } = require("mongoose");
+const { Schema, Types } = require("mongoose");
+
+const formatDate = (date) => {
+  return date.toLocaleDateString("en", {
+    day: "2-digit",
+    year: "2-digit",
+    month: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+};
 
 const reactionSchema = new Schema({
   reactionId: {
-    type: Schema.Types.ObjectId,
-    default: new Schema.Types.ObjectId(),
+    type: Types.ObjectId,
+    default: new Types.ObjectId(),
   },
   reactionBody: {
     type: String,
@@ -20,15 +30,5 @@ const reactionSchema = new Schema({
     get: formatDate,
   },
 });
-
-const formatDate = (date) => {
-  return date.toLocaleDateString("en", {
-    day: "2-digit",
-    year: "2-digit",
-    month: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-};
 
 module.exports = reactionSchema;
