@@ -90,7 +90,19 @@ module.exports = {
         }
       );
 
-      res.status(200).json(updateUser);
+      const otherUserUpdate = await User.findOneAndUpdate(
+        { _id: req.params.friendId },
+        {
+          $addToSet: {
+            friends: { _id: new Types.ObjectId(req.params.userId) },
+          },
+        },
+        {
+          new: true,
+        }
+      );
+
+      res.status(200).json({ user1: updateUser, user2: otherUserUpdate });
     } catch (error) {
       console.log(error);
       res.status(404).json(error);
