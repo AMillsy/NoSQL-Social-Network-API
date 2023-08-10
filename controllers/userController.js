@@ -76,4 +76,24 @@ module.exports = {
       res.status(404).json(error);
     }
   },
+  addFriend: async function (req, res) {
+    try {
+      const updateUser = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        {
+          $addToSet: {
+            friends: { _id: new Types.ObjectId(req.params.friendId) },
+          },
+        },
+        {
+          new: true,
+        }
+      );
+
+      res.status(200).json(updateUser);
+    } catch (error) {
+      console.log(error);
+      res.status(404).json(error);
+    }
+  },
 };
