@@ -1,0 +1,44 @@
+[
+  {
+    "thoughtText": "It's fascinating how the natural world is composed of countless intricate systems and interactions, each contributing to the overall balance and harmony of ecosystems.",
+    "username": "Mick",
+    "reactions": [
+      {
+        "reactionBody": "That is amazing!",
+        "username": "Jack"
+      },
+      {
+        "reactionBody": "That is interesting",
+        "username": "Millsy"
+      }
+    ]
+  },
+  {
+    "thoughtText": "The pace of technological advancement is astonishing. What will the next decade bring in terms of AI, space exploration, and biotechnology?",
+    "username": "Millsy",
+    "reactions": [
+      {
+        "reactionBody": "What will come next?",
+        "username": "Jack"
+      },
+      {
+        "reactionBody": "VR is the next best thing!",
+        "username": "Bob"
+      }
+    ]
+  },
+  {
+    "thoughtText": "Art has an incredible power to evoke emotions and spark creativity. Whether it's a painting, a piece of music, or a poem, it's a unique way humans communicate their inner worlds.",
+    "username": "David",
+    "reactions": [
+      {
+        "reactionBody": "Art is so wonderful!",
+        "username": "Mick"
+      },
+      {
+        "reactionBody": "It the true type of communication",
+        "username": "Bob"
+      }
+    ]
+  }
+]

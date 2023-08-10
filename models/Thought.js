@@ -17,12 +17,6 @@ const thoughtSchema = new Schema(
       required: true,
     },
     reactions: [reactionSchema],
-    students: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Student",
-      },
-    ],
   },
   {
     toJSON: {
