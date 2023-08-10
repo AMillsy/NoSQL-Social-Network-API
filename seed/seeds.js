@@ -11,6 +11,7 @@ connection.once("open", seedData);
 
 async function seedData() {
   await connection.collection("users").deleteMany({});
+  await connection.collection("thoughts").deleteMany({});
 
   const allUsers = await User.collection.insertMany(userData);
 
