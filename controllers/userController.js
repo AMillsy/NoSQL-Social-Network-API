@@ -60,6 +60,16 @@ module.exports = {
         _id: new Types.ObjectId(req.params.id),
       });
 
+      if (!deletedUser)
+        return res.status(404).json({ message: "No user found" });
+
+      if (deletedUser.thoughts.length > 0) {
+        for (const thought of deletedUser.thoughts) {
+          const deleteThought = await Thought.findOneAndDelete({
+            _id: thought,
+          });
+        }
+      }
       res.status(200).json(deletedUser);
     } catch (error) {
       console.log(error);
