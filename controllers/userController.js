@@ -1,5 +1,5 @@
 const { User, Thought } = require("../models");
-
+const { Types } = require("mongoose");
 module.exports = {
   findAllUsers: async function (req, res) {
     try {
@@ -35,6 +35,23 @@ module.exports = {
     } catch (error) {
       console.log(error);
       res.status(500).json(error);
+    }
+  },
+  updateUser: async function (req, res) {
+    try {
+      const updateUser = await User.findOneAndUpdate(
+        { _id: new Types.ObjectId(req.params.id) },
+        req.body,
+        {
+          new: true,
+        }
+      );
+
+      console.log(updateUser);
+      res.status(200).json(updateUser);
+    } catch (error) {
+      console.log(error);
+      res.status(404).json(error);
     }
   },
 };

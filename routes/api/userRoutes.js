@@ -4,8 +4,9 @@ const {
   findAllUsers,
   findSingleUser,
   createNewUser,
+  updateUser,
 } = require("../../controllers/userController");
 
 router.route("/").get(findAllUsers).post(createNewUser);
-router.get("/:id", findSingleUser);
+router.route("/:id").get(findSingleUser).put(updateUser);
 module.exports = router;
