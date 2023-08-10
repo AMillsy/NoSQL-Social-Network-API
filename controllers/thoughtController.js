@@ -58,4 +58,20 @@ module.exports = {
       res.status(404).json(error);
     }
   },
+  updateThought: async function (req, res) {
+    try {
+      const updateThought = await Thought.findOneAndUpdate(
+        { _id: req.params.id },
+        req.body,
+        { new: true }
+      );
+
+      if (!updateThought)
+        return res.status(404).json({ message: "No thought found" });
+
+      res.status(200).json(updateThought);
+    } catch (error) {
+      res.status(404).json(error);
+    }
+  },
 };
