@@ -108,4 +108,37 @@ module.exports = {
       res.status(404).json(error);
     }
   },
+
+  removeFriend: async function (req, res) {
+    try {
+      const updateUser = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        {
+          $pull: {
+            friends: new Types.ObjectId(req.params.friendId),
+          },
+        },
+        {
+          new: true,
+        }
+      );
+
+      const otherUserUpdate = await User.findOneAndUpdate(
+        { _id: req.params.friendId },
+        {
+          $pull: {
+            friends: new Types.ObjectId(req.params.userId),
+          },
+        },
+        {
+          new: true,
+        }
+      );
+
+      res.status(200).json({ user1: updateUser, user2: otherUserUpdate });
+    } catch (error) {
+      console.log(error);
+      res.status(404).json(error);
+    }
+  },
 };
