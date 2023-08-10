@@ -32,24 +32,29 @@ module.exports = {
 
       const user = req.body.username;
 
+      console.log(createdThought);
       const updateUser = await User.findOneAndUpdate(
         { username: user },
         {
-          $addToSet: { thoughts: new ObjectId(createdThought.insertedId) },
+          $addToSet: {
+            thoughts: { _id: new ObjectId(createdThought._id) },
+          },
         },
         { new: true }
       ).populate("thoughts");
 
       if (!updateUser)
-        return res
-          .status(404)
-          .json({ message: "Thought created but no user found" });
+        return res.status(404).json({
+          message: "Thought created but no user found",
+          thought: createdThought,
+        });
 
       res.status(200).json({
         message: "Thought created and added to user",
-        user: updatedUser,
+        user: updateUser,
       });
     } catch (error) {
+      console.error(error);
       res.status(404).json(error);
     }
   },
