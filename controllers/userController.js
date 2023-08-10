@@ -18,7 +18,7 @@ module.exports = {
         .select(["-_id", "-id"])
         .populate("thoughts");
 
-      if (!findUser) res.status(404).json({ message: "No user found" });
+      if (!findUser) return res.status(404).json({ message: "No user found" });
 
       res.status(200).json(findUser);
     } catch (error) {
@@ -49,6 +49,18 @@ module.exports = {
 
       console.log(updateUser);
       res.status(200).json(updateUser);
+    } catch (error) {
+      console.log(error);
+      res.status(404).json(error);
+    }
+  },
+  deleteUser: async function (req, res) {
+    try {
+      const deletedUser = await User.findOneAndDelete({
+        _id: new Types.ObjectId(req.params.id),
+      });
+
+      res.status(200).json(deletedUser);
     } catch (error) {
       console.log(error);
       res.status(404).json(error);
