@@ -10,24 +10,21 @@ const formatDate = (date) => {
   });
 };
 
-const reactionSchema = new Schema(
-  {
-    reactionBody: {
-      type: String,
-      maxLength: 280,
-      required: true,
-    },
-    username: {
-      type: String,
-      required: true,
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now(),
-      get: formatDate,
-    },
+const reactionSchema = new Schema({
+  reactionBody: {
+    type: String,
+    maxLength: 280,
+    required: true,
   },
-  { _id: true, id: true }
-);
+  username: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+    get: formatDate,
+  },
+});
 
 module.exports = reactionSchema;

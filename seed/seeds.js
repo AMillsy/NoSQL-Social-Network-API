@@ -30,9 +30,9 @@ async function seedData() {
       const createdThought = await Thought.collection.insertOne({
         username: thought.username,
         thoughtText: thought.thoughtText,
-        reactions: { _id: new Types.ObjectId(), ...reactionData[index] },
+        reactions: [{ _id: new Types.ObjectId(), ...reactionData[index] }],
       });
-      console.log(createdThought);
+
       const updatedUser = await User.findOneAndUpdate(
         { username: user },
         {
