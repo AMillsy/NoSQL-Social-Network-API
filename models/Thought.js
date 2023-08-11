@@ -1,6 +1,7 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 const reactionSchema = require("./Reaction");
 // REPLACE THE REACTIONS SCHEMA WITH THE ACTUAL ONE
+
 const thoughtSchema = new Schema(
   {
     thoughtText: {

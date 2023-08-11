@@ -10,25 +10,24 @@ const formatDate = (date) => {
   });
 };
 
-const reactionSchema = new Schema({
-  reactionId: {
-    type: Types.ObjectId,
-    default: new Types.ObjectId(),
+const reactionSchema = new Schema(
+  {
+    reactionBody: {
+      type: String,
+      maxLength: 280,
+      required: true,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now(),
+      get: formatDate,
+    },
   },
-  reactionBody: {
-    type: String,
-    maxLength: 280,
-    required: true,
-  },
-  username: {
-    type: String,
-    required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now(),
-    get: formatDate,
-  },
-});
+  { _id: true, id: true }
+);
 
 module.exports = reactionSchema;

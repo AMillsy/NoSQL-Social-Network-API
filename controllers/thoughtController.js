@@ -1,5 +1,5 @@
 const { ObjectId } = require("mongoose").Types;
-const { Thought, User } = require("../models");
+const { Thought, User, Reaction } = require("../models");
 
 module.exports = {
   getAllThoughts: async function (req, res) {
@@ -84,6 +84,51 @@ module.exports = {
         return res.status(404).json({ message: "No thought found" });
 
       res.status(200).json(deletedThought);
+    } catch (error) {
+      res.status(404).json(error);
+    }
+  },
+  addReaction: async function (req, res) {
+    try {
+      const updatedThought = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $addToSet: { reactions: req.body } },
+        { new: true }
+      );
+
+      if (!updatedThought)
+        return res
+          .status(404)
+          .json({ message: "Not thought found and reaction not created" });
+
+      res.status(200).json({
+        message: "Reaction added to thought",
+        thought: updatedThought,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(404).json(error);
+    }
+  },
+  removeReaction: async function (req, res) {
+    try {
+      const removedReaction = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        {
+          $pull: {
+            reactions: { _id: new ObjectId(req.body.reactionId) },
+          },
+        },
+        { new: true }
+      );
+
+      if (!removedReaction)
+        return res.status(404).json({ message: "Reaction not removed" });
+
+      res.status(200).json({
+        message: "Reaction has been removed",
+        reaction: removedReaction,
+      });
     } catch (error) {
       res.status(404).json(error);
     }
