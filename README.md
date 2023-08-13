@@ -4,7 +4,7 @@ Social media NoSQL database using MongoDB and Mongoose.
 
 ## Table of Content
 
-- [Walkthough]()
+- [Walkthough](#walkthrough)
 - [User Story & Acceptance Criteria](#user-story)
 - [What I have learnt](#what-i-have-learnt)
 - [Installation](#installation)
@@ -12,7 +12,7 @@ Social media NoSQL database using MongoDB and Mongoose.
 
 ## Walkthrough
 
-[Walkthrough]()
+[Walkthrough](https://www.youtube.com/watch?v=al13-myWQFQ)
 
 ## User Story
 
