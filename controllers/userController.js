@@ -70,7 +70,9 @@ module.exports = {
           });
         }
       }
-      res.status(200).json(deletedUser);
+      res
+        .status(200)
+        .json({ message: "The user has been deleted", user: deletedUser });
     } catch (error) {
       console.log(error);
       res.status(404).json(error);
@@ -102,7 +104,11 @@ module.exports = {
         }
       );
 
-      res.status(200).json({ user1: updateUser, user2: otherUserUpdate });
+      res.status(200).json({
+        message: "Users has added each other as friends",
+        user1: updateUser,
+        user2: otherUserUpdate,
+      });
     } catch (error) {
       console.log(error);
       res.status(404).json(error);
@@ -135,7 +141,13 @@ module.exports = {
         }
       );
 
-      res.status(200).json({ user1: updateUser, user2: otherUserUpdate });
+      res
+        .status(200)
+        .json({
+          messsage: "Users have removed each other from there friend list",
+          user1: updateUser,
+          user2: otherUserUpdate,
+        });
     } catch (error) {
       console.log(error);
       res.status(404).json(error);

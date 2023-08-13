@@ -83,7 +83,9 @@ module.exports = {
       if (!deletedThought)
         return res.status(404).json({ message: "No thought found" });
 
-      res.status(200).json(deletedThought);
+      res
+        .status(200)
+        .json({ message: "Thought has been deleted", thought: deletedThought });
     } catch (error) {
       res.status(404).json(error);
     }
