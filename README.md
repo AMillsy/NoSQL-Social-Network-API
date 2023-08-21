@@ -80,32 +80,32 @@ npm run dev
 
 ### Create, Delete, Update and Get Users
 
-![User get request](./readme-images/userGet.png)
+![User get request](./images/readme-images/userGet.png)
 
-![User Create Request](./readme-images/userCreate.png)
+![User Create Request](./images/readme-images/userCreate.png)
 
-![User Update Request](./readme-images/userUpdate.png)
+![User Update Request](./images/readme-images/userUpdate.png)
 
-![User Delete Request](./readme-images/userDelete.png)
+![User Delete Request](./images/readme-images/userDelete.png)
 
 ### Add and Remove Friends
 
-![Add Friend Request](./readme-images/friendAdd.png)
+![Add Friend Request](./images/readme-images/friendAdd.png)
 
-![Remove Friend Request](./readme-images/friendRemove.png)
+![Remove Friend Request](./images/readme-images/friendRemove.png)
 
 ### Create, Delete, Update and Get Thoughts
 
-![Thought Get Request](./readme-images/thoughtGet.png)
+![Thought Get Request](./images/readme-images/thoughtGet.png)
 
-![Thought Create Request](./readme-images/thoughtCreate.png)
+![Thought Create Request](./images/readme-images/thoughtCreate.png)
 
-![Thought Update Request](./readme-images/thoughtUpdate.png)
+![Thought Update Request](./images/readme-images/thoughtUpdate.png)
 
-![Thought Delete Request](./readme-images/thoughtDelete.png)
+![Thought Delete Request](./images/readme-images/thoughtDelete.png)
 
 ### Add and remove reactions from Thoughts
 
-![Reaction Add Request](./readme-images/reactionAdd.png)
+![Reaction Add Request](./images/readme-images/reactionAdd.png)
 
-![Reaction Removed Request](./readme-images/reactionRemove.png)
+![Reaction Removed Request](./images/readme-images/reactionRemove.png)
